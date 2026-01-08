@@ -35,7 +35,7 @@ if 'contador_atualizacoes' not in st.session_state:
 
 col1, col2 = st.columns([1, 1])
 with col1:
-    st.title("🚨 Ocorrências de Chuvas - Conservação")
+    st.title("🚨 Ocorrências de Chuvas")
     st.markdown("**Sistema de Monitoramento em Tempo Real**")
 
 # ============= SIDEBAR =============
