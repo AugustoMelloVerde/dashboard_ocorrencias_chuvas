@@ -17,10 +17,8 @@ COR_PRIORIDADE = {
 TIPOS_MAPA = [
     "OpenStreetMap",
     "CartoDB Positron",
-    "CartoDB Voyager",
-    "MapBox Standard Day",
-    "MapBox Standard Night",
-    "MapBox Satellite"
+    "CartoDB Voyager"
+    
 ]
 
 # ✅ LISTA COMPLETA DE POPs (FIXA - não depende dos dados)

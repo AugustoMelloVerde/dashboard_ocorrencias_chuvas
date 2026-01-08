@@ -171,11 +171,10 @@ def criar_mapa_calor(df, tipo_mapa='OpenStreetMap'):
     'OpenStreetMap': 'OpenStreetMap',
     'CartoDB Positron': 'CartoDB positron',
     'CartoDB Voyager': 'CartoDB voyager',
-    'MapBox Standard Day': 'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/{z}/{x}/{y}@2x',
-    'MapBox Standard Night': 'https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/{z}/{x}/{y}@2x',
-    'MapBox Satellite': 'https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/{z}/{x}/{y}@2x'
+    
     }
 
+    
     
     # Usar o tipo selecionado ou padrão
     tile_url = mapa_tiles.get(tipo_mapa, 'OpenStreetMap')
@@ -206,10 +205,17 @@ def criar_mapa_calor(df, tipo_mapa='OpenStreetMap'):
     ).add_to(mapa)
 
     
-    # Preparar dados para HeatMap
-    dados_calor = df[['latitude', 'longitude']].values.tolist()
-    
-    # Adicionar HeatMap
-    HeatMap(dados_calor, radius=20, blur=15, max_zoom=1).add_to(mapa)
+    # Preparar dados para HeatMap (apenas pontos válidos)
+    dados_calor = df[['latitude', 'longitude']].dropna().values.tolist()
+    dados_calor = [p for p in dados_calor if p[0] != 0 and p[1] != 0]
+
+    if len(dados_calor) > 0:
+        HeatMap(
+        dados_calor,
+        radius=18,        # mais concentrado
+        blur=10,          # menos borrado
+        max_zoom=18,
+        min_opacity=0.4,  # mais visível
+    ).add_to(mapa)
     
     return mapa
