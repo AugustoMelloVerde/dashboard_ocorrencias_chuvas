@@ -116,7 +116,7 @@ def criar_mapa_folium(df, tipo_mapa='OpenStreetMap'):
             
             # Criar popup com informações
             popup_text = f"""
-            <b>Bairro:</b> {row.get('bairro', 'N/A')}<br>
+            <b>Endereço:</b> {row.get('location', 'N/A')}<br>
             <b>Prioridade:</b> {row.get('prioridade', 'N/A')}<br>
             <b>POP:</b> {row.get('pop', 'N/A')}<br>
             <b>Lat/Lon:</b> {row['latitude']:.4f}, {row['longitude']:.4f}
