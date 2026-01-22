@@ -128,10 +128,10 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.metric("Total de Ocorrências", len(df_filtrado))
 
-with col2:
-    if 'prioridade' in df_filtrado.columns:
-        alta_critica = len(df_filtrado[df_filtrado['prioridade'].isin(['ALTA', 'CRÍTICA', 'MUITO ALTA'])])
-        st.metric("Alta/Crítica", alta_critica)
+#with col2:
+#    if 'prioridade' in df_filtrado.columns:
+#        alta_critica = len(df_filtrado[df_filtrado['prioridade'].isin(['ALTA', 'CRÍTICA', 'MUITO ALTA'])])
+#        st.metric("Alta/Crítica", alta_critica)
 
 #with col3:
 #    bairros_unicos = df_filtrado['bairro'].nunique() if 'bairro' in df_filtrado.columns else 0
